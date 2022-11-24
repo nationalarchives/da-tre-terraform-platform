@@ -2,7 +2,7 @@ data "aws_iam_policy_document" "tre_break_glass_terraform" {
   statement {
     effect    = "Allow"
     actions   = ["iam:*"]
-    resources = local.tre_github_actions_open_id_connect_policies[0].terraform_roles
+    resources = local.tre_terraform_platform_resources
   }
 }
 

@@ -6,6 +6,11 @@ data "aws_iam_policy_document" "tre_assume_role_terraform" {
       type        = "AWS"
       identifiers = [var.tre_open_id_connect_roles]
     }
+    condition {
+      test     = "StringEquals"
+      variable = "sts:AssumeRole"
+      values   = [var.external_id]
+    }
   }
 }
 
@@ -16,6 +21,11 @@ data "aws_iam_policy_document" "tre_assume_role_break_glass" {
     principals {
       type        = "AWS"
       identifiers = [var.tre_open_id_connect_platform_role]
+    }
+    condition {
+      test     = "StringEquals"
+      variable = "sts:AssumeRole"
+      values   = [var.external_id]
     }
   }
 }
