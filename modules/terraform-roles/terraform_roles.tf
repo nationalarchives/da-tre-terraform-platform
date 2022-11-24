@@ -27,6 +27,6 @@ resource "aws_iam_policy" "tre_terraform_iam" {
 resource "aws_iam_policy" "tre_permission_boundary" {
   name = "${var.prefix}-permission-boundary"
   policy = templatefile(var.permission_boundary_policy_path, {
-    
+
   })
 }

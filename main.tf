@@ -66,5 +66,3 @@ module "tre_prod_terraform_roles" {
   tre_break_glass_terraform_policy = data.aws_iam_policy_document.tre_break_glass_terraform.json
   account_id                       = data.aws_caller_identity.prod.account_id
 }
-
-# ------------------------------------------------------------
