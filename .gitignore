@@ -1,0 +1,9 @@
+# terraform backend info
+backend*.conf
+
+# terraform tfvars
+
+*.tfvars
+
+.terraform.*
+.terraform
