@@ -23,7 +23,7 @@ def get_file_content(file_name):
 
 # Send terraform plan to CloudWatch for review
 def send_to_cloudwatch():
-    log_event = get_file_content('plan.txt')
+    log_event = get_file_content('{env}/plan.txt')
     client.create_log_stream(logGroupName=log_group_name, logStreamName=log_stream_name)
     response = client.put_log_events(logGroupName=log_group_name,
                                     logStreamName=log_stream_name,
