@@ -54,5 +54,5 @@ def send_message_to_slack():
     if resp.status_code == 200:
         print("A message sent to slack with links to CloudWatch Log Stream for terraform plan and GitHub Workflow")
     else:
-        print(f"Error: {resp.status_code}")
+        print(f"Error: {resp.status_code} {resp}")
 send_message_to_slack()
