@@ -3,13 +3,13 @@ variable "prefix" {
   type        = string
 }
 
-variable "tre_open_id_connect_roles" {
-  description = "ARN of the OpenID Connect Roles in the management account"
+variable "roles_can_assume_terraform_role" {
+  description = "ARNs of the OpenID Connect Roles in the management account that can asssume terraform role"
   type        = string
 }
 
-variable "tre_open_id_connect_platform_role" {
-  description = "ARN of the OpenID Connect Platform Role in the management account"
+variable "roles_can_assume_terraform_backend_role" {
+  description = "ARNs of the OpenID Connect Platform Role in the management account that can asssume terraform backend role"
   type        = string
 }
 
