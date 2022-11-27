@@ -19,7 +19,7 @@ module "tre_management_terraform_roles" {
   permission_boundary_policy_path   = "./templates/permission-boundary-policy/management.tftpl"
   terraform_policy_path             = "./templates/terraform-role-policy/management.tftpl"
   terraform_iam_policy_path         = "./templates/terraform-iam-policy/management.tftpl"
-  tre_break_glass_terraform_policy  = data.aws_iam_policy_document.tre_break_glass_terraform.json
+  tre_terraform_backend_policy      = data.aws_iam_policy_document.tre_terraform_backend.json
   account_id                        = data.aws_caller_identity.management.account_id
 }
 
@@ -34,9 +34,9 @@ module "tre_users_terraform_roles" {
   providers = {
     aws = aws.users
   }
-  terraform_iam_policy_path        = "./templates/terraform-iam-policy/users.tftpl"
-  tre_break_glass_terraform_policy = data.aws_iam_policy_document.tre_break_glass_terraform.json
-  account_id                       = data.aws_caller_identity.users.account_id
+  terraform_iam_policy_path    = "./templates/terraform-iam-policy/users.tftpl"
+  tre_terraform_backend_policy = data.aws_iam_policy_document.tre_terraform_backend.json
+  account_id                   = data.aws_caller_identity.users.account_id
 }
 
 module "tre_nonprod_terraform_roles" {
@@ -50,9 +50,9 @@ module "tre_nonprod_terraform_roles" {
   providers = {
     aws = aws.nonprod
   }
-  terraform_iam_policy_path        = "./templates/terraform-iam-policy/environments.tftpl"
-  tre_break_glass_terraform_policy = data.aws_iam_policy_document.tre_break_glass_terraform.json
-  account_id                       = data.aws_caller_identity.nonprod.account_id
+  terraform_iam_policy_path    = "./templates/terraform-iam-policy/environments.tftpl"
+  tre_terraform_backend_policy = data.aws_iam_policy_document.tre_terraform_backend.json
+  account_id                   = data.aws_caller_identity.nonprod.account_id
 }
 
 module "tre_prod_terraform_roles" {
@@ -66,7 +66,7 @@ module "tre_prod_terraform_roles" {
   providers = {
     aws = aws.prod
   }
-  terraform_iam_policy_path        = "./templates/terraform-iam-policy/environments.tftpl"
-  tre_break_glass_terraform_policy = data.aws_iam_policy_document.tre_break_glass_terraform.json
-  account_id                       = data.aws_caller_identity.prod.account_id
+  terraform_iam_policy_path    = "./templates/terraform-iam-policy/environments.tftpl"
+  tre_terraform_backend_policy = data.aws_iam_policy_document.tre_terraform_backend.json
+  account_id                   = data.aws_caller_identity.prod.account_id
 }

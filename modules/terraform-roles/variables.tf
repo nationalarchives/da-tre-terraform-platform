@@ -29,8 +29,8 @@ variable "terraform_iam_policy_path" {
   type        = string
 }
 
-variable "tre_break_glass_terraform_policy" {
-  description = "Path to the tre break glass policy"
+variable "tre_terraform_backend_policy" {
+  description = "Path to the tre terraform backend policy"
   type        = any
 }
 

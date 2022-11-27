@@ -19,9 +19,9 @@ data "aws_iam_policy_document" "tre_github_actions_open_id_connect" {
       values   = ["sts.amazonaws.com"]
     }
     condition {
-        test     = "StringLike"
-        variable = "token.actions.githubusercontent.com:sub"
-        values   = each.value.tre_repositories
+      test     = "StringLike"
+      variable = "token.actions.githubusercontent.com:sub"
+      values   = each.value.tre_repositories
     }
   }
 }

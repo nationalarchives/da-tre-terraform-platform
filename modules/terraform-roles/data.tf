@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "tre_assume_role_terraform" {
   }
 }
 
-data "aws_iam_policy_document" "tre_assume_role_break_glass" {
+data "aws_iam_policy_document" "tre_assume_role_terraform_backend" {
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]

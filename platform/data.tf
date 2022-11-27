@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "tre_break_glass_terraform" {
+data "aws_iam_policy_document" "tre_terraform_backend" {
   statement {
     effect    = "Allow"
     actions   = ["iam:*"]

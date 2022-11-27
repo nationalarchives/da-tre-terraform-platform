@@ -18,6 +18,11 @@ variable "external_id" {
   type        = string
 }
 
+variable "tre_platform_repository" {
+  description = "TRE platform repository that requires access to TRE AWS accounts to make changes to Terraform backend"
+  type        = list(string)
+}
+
 variable "tre_platform_repositories" {
   description = "List TRE repositories that require access to tre AWS Accounts"
   type        = list(string)
