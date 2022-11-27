@@ -11,7 +11,7 @@ function cleanup {
 trap cleanup EXIT
 
 pwd
-cd platform
+cd "${TF_DIR}"
 ls -la
 terraform -v
 aws ssm get-parameters --name "${AWS_PARAM_STORE_TF_BACKEND_KEY}" --with-decryption --query "Parameters[*].Value" --output text > backend.conf 2> error.txt

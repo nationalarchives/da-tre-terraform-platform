@@ -13,6 +13,7 @@ log_stream_name = os.environ['LOG_STREAM_NAME']
 env = os.environ['ENV']
 github_url = os.environ['GITHUB_URL'] 
 slack_webhook = os.environ['SLACK_WEBHOOK']
+file_name = os.environ["TF_DIR"]+"/plan.txt"
 
 # Get the plan.txt file
 def get_file_content(file_name):
@@ -23,7 +24,7 @@ def get_file_content(file_name):
 
 # Send terraform plan to CloudWatch for review
 def send_to_cloudwatch():
-    log_event = get_file_content('platform/plan.txt')
+    log_event = get_file_content(file_name)
     client.create_log_stream(logGroupName=log_group_name, logStreamName=log_stream_name)
     response = client.put_log_events(logGroupName=log_group_name,
                                     logStreamName=log_stream_name,
