@@ -10,6 +10,7 @@ function cleanup {
 
 trap cleanup EXIT
 
+cd platform
 terraform -v
 aws ssm get-parameters --name "${AWS_PARAM_STORE_TF_BACKEND_KEY}" --with-decryption --query "Parameters[*].Value" --output text > backend.conf 2> error.txt
 aws ssm get-parameters --name "${AWS_PARAM_STORE_TF_VARS_KEY}" --with-decryption --query "Parameters[*].Value" --output text > terraform.tfvars 2> error.txt
