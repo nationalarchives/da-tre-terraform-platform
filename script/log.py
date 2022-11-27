@@ -44,7 +44,7 @@ def send_message_to_slack():
 
     message = f"Please review <{cloud_watch_url}|terraform plan> for `{env}` in the management account and approve the <{github_url}|workflow>"
     msg = {
-    "channel": "U02JE3BRLQY",
+    "channel": "tna-test",
     "username": "terraform-plan",
     "text": message
     }
@@ -54,5 +54,5 @@ def send_message_to_slack():
     if resp.status_code == 200:
         print("A message sent to slack with links to CloudWatch Log Stream for terraform plan and GitHub Workflow")
     else:
-        print(f"Error: {resp.status_code} {resp}")
+        print(f"Error: {resp.status_code}")
 send_message_to_slack()
