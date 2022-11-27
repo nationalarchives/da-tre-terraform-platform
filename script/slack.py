@@ -15,7 +15,7 @@ def get_file_content(file_name):
 
 # Post file with slack 
 def send_file():
-    content = get_file_content('plan.txt')
+    content = get_file_content('{env}/plan.txt')
     message = f'*Plese review the plan below for `{env}` environment before approving in <{github_url}|here>*'
     url = "https://slack.com/api/files.upload"
     data = {
