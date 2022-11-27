@@ -1,5 +1,5 @@
 module "tre_github_actions_open_id_connect" {
-  source = "./modules/open-id-connect"
+  source = "../modules/open-id-connect"
   prefix = var.prefix
   #   tre_repositories = var.tre_repositories
   tre_github_actions_open_id_connect_policies = local.tre_github_actions_open_id_connect_policies
@@ -11,7 +11,7 @@ module "tre_github_actions_open_id_connect" {
 
 # TRE Environments Terraform Roles Modules
 module "tre_management_terraform_roles" {
-  source                            = "./modules/terraform-roles"
+  source                            = "../modules/terraform-roles"
   external_id                       = var.external_id
   tre_open_id_connect_roles         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
   tre_open_id_connect_platform_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
@@ -24,7 +24,7 @@ module "tre_management_terraform_roles" {
 }
 
 module "tre_users_terraform_roles" {
-  source                            = "./modules/terraform-roles"
+  source                            = "../modules/terraform-roles"
   external_id                       = var.external_id
   tre_open_id_connect_roles         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
   tre_open_id_connect_platform_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
@@ -40,7 +40,7 @@ module "tre_users_terraform_roles" {
 }
 
 module "tre_nonprod_terraform_roles" {
-  source                            = "./modules/terraform-roles"
+  source                            = "../modules/terraform-roles"
   external_id                       = var.external_id
   tre_open_id_connect_roles         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.nonprod
   tre_open_id_connect_platform_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
@@ -56,7 +56,7 @@ module "tre_nonprod_terraform_roles" {
 }
 
 module "tre_prod_terraform_roles" {
-  source                            = "./modules/terraform-roles"
+  source                            = "../modules/terraform-roles"
   external_id                       = var.external_id
   tre_open_id_connect_roles         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.prod
   tre_open_id_connect_platform_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
