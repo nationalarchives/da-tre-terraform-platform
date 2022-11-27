@@ -44,7 +44,7 @@ def send_message_to_slack():
 
     message = f"Please review <{cloud_watch_url}|terraform plan> for `{env}` in the management account and approve the <{github_url}|workflow>"
     msg = {
-    "channel": "tna-test",
+    "channel": "rahmed",
     "username": "terraform-plan",
     "text": message
     }
