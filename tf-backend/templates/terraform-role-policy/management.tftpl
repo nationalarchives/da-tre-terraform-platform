@@ -3,12 +3,10 @@
     "Statement": [
         
         {
-            "Sid": "DenyAll",
-            "Effect": "Deny",
-            "Action": [
-                "*"
-            ],
-            "Resource": "*"
+            "Sid": "S3Create",
+            "Effect": "Allow",
+            "Action": "s3:CreateBucket",
+            "Resource": "arn:aws:s3:::*"
         }
     ]
 }
