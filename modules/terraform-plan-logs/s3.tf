@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_plan" {
-  bucket = "${var.env}-${var.prefix}-terraform-plan"
+  bucket = "${var.prefix}-terraform-plan"
 }
 
 resource "aws_s3_bucket_acl" "terraform_plan" {
