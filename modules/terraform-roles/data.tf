@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "tre_assume_role_terraform" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = [var.tre_open_id_connect_roles]
+      identifiers = [var.roles_can_assume_terraform_role]
     }
     condition {
       test     = "StringEquals"
@@ -14,13 +14,13 @@ data "aws_iam_policy_document" "tre_assume_role_terraform" {
   }
 }
 
-data "aws_iam_policy_document" "tre_assume_role_break_glass" {
+data "aws_iam_policy_document" "tre_assume_role_terraform_backend" {
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = [var.tre_open_id_connect_platform_role]
+      identifiers = [var.roles_can_assume_terraform_backend_role]
     }
     condition {
       test     = "StringEquals"

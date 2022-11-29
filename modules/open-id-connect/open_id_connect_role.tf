@@ -1,10 +1,11 @@
 resource "aws_iam_role" "tre_github_actions_open_id_connect" {
   for_each           = { for role in var.tre_github_actions_open_id_connect_roles : role.name => role }
   name               = "${var.prefix}-github-actions-open-id-connect-role-${each.value.name}"
-  assume_role_policy = data.aws_iam_policy_document.tre_github_actions_open_id_connect.json
+  assume_role_policy = data.aws_iam_policy_document.tre_github_actions_open_id_connect[each.key].json
 }
 
 data "aws_iam_policy_document" "tre_github_actions_open_id_connect" {
+  for_each = { for role in var.tre_github_actions_open_id_connect_roles : role.name => role }
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRoleWithWebIdentity"]
@@ -17,13 +18,10 @@ data "aws_iam_policy_document" "tre_github_actions_open_id_connect" {
       variable = "token.actions.githubusercontent.com:aud"
       values   = ["sts.amazonaws.com"]
     }
-    dynamic "condition" {
-      for_each = var.tre_github_actions_open_id_connect_roles
-      content {
-        test     = "StringLike"
-        variable = "token.actions.githubusercontent.com:sub"
-        values   = condition.value["tre_repositories"]
-      }
+    condition {
+      test     = "StringLike"
+      variable = "token.actions.githubusercontent.com:sub"
+      values   = each.value.tre_repositories
     }
   }
 }
