@@ -11,26 +11,26 @@ module "tre_github_actions_open_id_connect" {
 
 # TRE Environments Terraform Roles Modules
 module "tre_management_terraform_roles" {
-  source                            = "../modules/terraform-roles"
-  external_id                       = var.external_id
-  roles_can_assume_terraform_role       = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
-  roles_can_assume_terraform_backend_role  = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend
-  prefix                            = var.prefix
-  permission_boundary_policy_path   = "./templates/permission-boundary-policy/management.tftpl"
-  terraform_policy_path             = "./templates/terraform-role-policy/management.tftpl"
-  terraform_iam_policy_path         = "./templates/terraform-iam-policy/management.tftpl"
-  tre_terraform_backend_policy      = data.aws_iam_policy_document.tre_terraform_backend.json
-  account_id                        = data.aws_caller_identity.management.account_id
+  source                                  = "../modules/terraform-roles"
+  external_id                             = var.external_id
+  roles_can_assume_terraform_role         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
+  roles_can_assume_terraform_backend_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend
+  prefix                                  = var.prefix
+  permission_boundary_policy_path         = "./templates/permission-boundary-policy/management.tftpl"
+  terraform_policy_path                   = "./templates/terraform-role-policy/management.tftpl"
+  terraform_iam_policy_path               = "./templates/terraform-iam-policy/management.tftpl"
+  tre_terraform_backend_policy            = data.aws_iam_policy_document.tre_terraform_backend.json
+  account_id                              = data.aws_caller_identity.management.account_id
 }
 
 module "tre_users_terraform_roles" {
-  source                            = "../modules/terraform-roles"
-  external_id                       = var.external_id
-  roles_can_assume_terraform_role       = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
+  source                                  = "../modules/terraform-roles"
+  external_id                             = var.external_id
+  roles_can_assume_terraform_role         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform
   roles_can_assume_terraform_backend_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend
-  prefix                            = var.prefix
-  permission_boundary_policy_path   = "./templates/permission-boundary-policy/users.tftpl"
-  terraform_policy_path             = "./templates/terraform-role-policy/users.tftpl"
+  prefix                                  = var.prefix
+  permission_boundary_policy_path         = "./templates/permission-boundary-policy/users.tftpl"
+  terraform_policy_path                   = "./templates/terraform-role-policy/users.tftpl"
   providers = {
     aws = aws.users
   }
@@ -40,13 +40,13 @@ module "tre_users_terraform_roles" {
 }
 
 module "tre_nonprod_terraform_roles" {
-  source                            = "../modules/terraform-roles"
-  external_id                       = var.external_id
-  roles_can_assume_terraform_role       = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.nonprod
+  source                                  = "../modules/terraform-roles"
+  external_id                             = var.external_id
+  roles_can_assume_terraform_role         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.nonprod
   roles_can_assume_terraform_backend_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend
-  prefix                            = var.prefix
-  permission_boundary_policy_path   = "./templates/permission-boundary-policy/environments.tftpl"
-  terraform_policy_path             = "./templates/terraform-role-policy/environments.tftpl"
+  prefix                                  = var.prefix
+  permission_boundary_policy_path         = "./templates/permission-boundary-policy/environments.tftpl"
+  terraform_policy_path                   = "./templates/terraform-role-policy/environments.tftpl"
   providers = {
     aws = aws.nonprod
   }
@@ -56,13 +56,13 @@ module "tre_nonprod_terraform_roles" {
 }
 
 module "tre_prod_terraform_roles" {
-  source                            = "../modules/terraform-roles"
-  external_id                       = var.external_id
-  roles_can_assume_terraform_role       = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.prod
+  source                                  = "../modules/terraform-roles"
+  external_id                             = var.external_id
+  roles_can_assume_terraform_role         = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.prod
   roles_can_assume_terraform_backend_role = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend
-  prefix                            = var.prefix
-  permission_boundary_policy_path   = "./templates/permission-boundary-policy/environments.tftpl"
-  terraform_policy_path             = "./templates/terraform-role-policy/environments.tftpl"
+  prefix                                  = var.prefix
+  permission_boundary_policy_path         = "./templates/permission-boundary-policy/environments.tftpl"
+  terraform_policy_path                   = "./templates/terraform-role-policy/environments.tftpl"
   providers = {
     aws = aws.prod
   }

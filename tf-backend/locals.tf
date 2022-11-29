@@ -17,7 +17,7 @@ locals {
         module.tre_users_terraform_roles.terraform_role_arn,
         module.tre_management_terraform_roles.terraform_role_arn,
       ]
-    },        
+    },
     {
       name = "nonprod"
       terraform_roles = [
@@ -36,7 +36,7 @@ locals {
     {
       name             = "tf-backend"
       tre_repositories = var.tre_platform_repository
-    },    
+    },
     {
       name             = "platform"
       tre_repositories = var.tre_platform_repositories
