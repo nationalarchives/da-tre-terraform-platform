@@ -35,7 +35,7 @@ locals {
   tre_github_actions_open_id_connect_roles = [
     {
       name             = "tf-backend"
-      tre_repositories = var.tre_platform_repository
+      tre_repositories = var.tre_backend_repository
     },
     {
       name             = "platform"
