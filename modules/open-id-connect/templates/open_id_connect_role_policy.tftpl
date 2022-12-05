@@ -65,6 +65,14 @@
             "Effect": "Allow",
             "Action": "codeartifact:*",
             "Resource": "*"
+        },
+        {
+            "Sid": "AllowServiceBearerToken",
+            "Effect": "Allow",
+            "Action": "sts:GetServiceBearerToken",
+            "Resource": "*"
         }
+    ]
+}
     ]
 }
