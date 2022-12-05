@@ -59,6 +59,12 @@
             "Effect": "Allow",
             "Action": "ecr:*",
             "Resource": "*"
-        } 
+        },
+        {
+            "Sid": "CodeArtifactAccess",
+            "Effect": "Allow",
+            "Action": "codeartifact:*",
+            "Resource": "*"
+        }
     ]
 }
