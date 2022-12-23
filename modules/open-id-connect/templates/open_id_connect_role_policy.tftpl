@@ -53,6 +53,24 @@
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
             "Resource": ${jsonencode(terraform_roles)}
-        }      
+        },
+        {
+            "Sid": "ECRAccess",
+            "Effect": "Allow",
+            "Action": "ecr:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "CodeArtifactAccess",
+            "Effect": "Allow",
+            "Action": "codeartifact:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowServiceBearerToken",
+            "Effect": "Allow",
+            "Action": "sts:GetServiceBearerToken",
+            "Resource": "*"
+        }
     ]
 }
