@@ -7,13 +7,13 @@ resource "aws_codeartifact_domain" "tre_v2" {
 resource "aws_codeartifact_repository" "tre_v2_upstream" {
   # Not currently using ${var.prefix} as resource already created manually
   repository = "pypi-store"
-  domain     = aws_codeartifact_domain.tre_v2
+  domain     = aws_codeartifact_domain.tre_v2.domain
 }
 
 # Define the TRE v2 CodeArtifact repository
 resource "aws_codeartifact_repository" "tre_v2" {
   repository = "${var.prefix}-ca-artifacts"
-  domain     = aws_codeartifact_domain.tre_v2
+  domain     = aws_codeartifact_domain.tre_v2.domain
 
   upstream {
     repository_name = aws_codeartifact_repository.tre_v2_upstream.repository
