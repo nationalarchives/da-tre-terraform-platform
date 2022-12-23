@@ -24,17 +24,17 @@ variable "tre_backend_repository" {
 }
 
 variable "tre_platform_repositories" {
-  description = "List TRE repositories that require access to tre AWS Accounts"
+  description = "List of TRE repositories that require access to tre AWS Management Account"
   type        = list(string)
 }
 
 variable "tre_prod_repositories" {
-  description = "List TRE repositories for prod environments that require access to tre AWS nonprod account"
+  description = "List of TRE repositories that require access to tre AWS prod account"
   type        = list(string)
 }
 
 variable "tre_nonprod_repositories" {
-  description = "List TRE repositories for nonprod environments that require access to tre AWS prod account"
+  description = "List of TRE repositories that require access to tre AWS nonprod account"
   type        = list(string)
 }
 
