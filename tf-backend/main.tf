@@ -70,9 +70,3 @@ module "tre_prod_terraform_roles" {
   tre_terraform_backend_policy = data.aws_iam_policy_document.tre_terraform_backend.json
   account_id                   = data.aws_caller_identity.prod.account_id
 }
-
-# module "break_glass_alert" {
-#   source = "../modules/break-glass-alert"
-#   tf_backend_role_arn = module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend
-#   prefix = var.prefix
-# }
