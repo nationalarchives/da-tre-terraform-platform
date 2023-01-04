@@ -14,6 +14,7 @@ resource "aws_codeartifact_repository" "tre_v2_upstream" {
 resource "aws_codeartifact_repository" "tre_v2" {
   repository = "${var.prefix}-ca-artifacts"
   domain     = aws_codeartifact_domain.tre_v2.domain
+  description = "A repository to store the packages associated with The National Archives Transformation Engine Project"
 
   upstream {
     repository_name = aws_codeartifact_repository.tre_v2_upstream.repository
