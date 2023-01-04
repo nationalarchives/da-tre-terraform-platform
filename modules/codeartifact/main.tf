@@ -12,8 +12,6 @@ resource "aws_codeartifact_repository" "tre_v2_upstream" {
 
   external_connections {
     external_connection_name = "public:pypi"
-    package_format           = "pypi"
-    status                   = "AVAILABLE"
   }
 }
 
