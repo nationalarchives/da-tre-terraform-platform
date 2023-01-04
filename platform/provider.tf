@@ -4,6 +4,16 @@ provider "aws" {
     role_arn    = var.assume_roles.mngmt
     external_id = var.external_id
   }
+  default_tags {
+    tags = {
+      Environment     = "platform"
+      Owner           = "digital-archiving"
+      Terraform       = true
+      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      CostCentre      = "56"
+      Role            = "prvt"
+    }
+  }
 }
 
 provider "aws" {
@@ -12,6 +22,16 @@ provider "aws" {
   assume_role {
     role_arn    = var.assume_roles.users
     external_id = var.external_id
+  }
+  default_tags {
+    tags = {
+      Environment     = "platform"
+      Owner           = "digital-archiving"
+      Terraform       = true
+      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      CostCentre      = "56"
+      Role            = "prvt"
+    }
   }
 }
 
@@ -22,6 +42,16 @@ provider "aws" {
     role_arn    = var.assume_roles.nonprod
     external_id = var.external_id
   }
+  default_tags {
+    tags = {
+      Environment     = "platform"
+      Owner           = "digital-archiving"
+      Terraform       = true
+      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      CostCentre      = "56"
+      Role            = "prvt"
+    }
+  }  
 }
 
 provider "aws" {
@@ -31,6 +61,16 @@ provider "aws" {
     role_arn    = var.assume_roles.prod
     external_id = var.external_id
   }
+  default_tags {
+    tags = {
+      Environment     = "platform"
+      Owner           = "digital-archiving"
+      Terraform       = true
+      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      CostCentre      = "56"
+      Role            = "prvt"
+    }
+  }  
 }
 
 terraform {
