@@ -13,9 +13,10 @@ permissions:
   contents: write
 jobs:
   terraform-deployment:
-    uses: nationalarchives/tre-github-actions/.github/workflows/tf-plan-approve-apply.yml@main
+    uses: nationalarchives/tre-github-actions/.github/workflows/tf-plan-approve-apply.yml@0.0.4
     with:
       environment: ${{ inputs.environment }}
+      environment-for-approval: apply-tf-plan-${{ inputs.environment }}
       tf_dir: ${{ inputs.environment }}
     secrets:
       ROLE_ARN: ${{ secrets.ROLE_ARN }}
