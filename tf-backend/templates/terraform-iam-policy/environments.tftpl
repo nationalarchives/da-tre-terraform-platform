@@ -23,13 +23,32 @@
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
-                "iam:PassRole",
-                "iam:Get*",
-                "iam:List*",
+                "iam:CreatePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:CreateServiceLinkedRole",
+                "iam:DeletePolicy",
+                "iam:DeletePolicyVersion",            ],
                 "iam:DeleteRole",
-                "iam:TagRole"
-            ],
-            "Resource": "*"            
+                "iam:DeleteServiceLinkedRole",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListPolicies",
+                "iam:ListPolicyTags",
+                "iam:ListPolicyVersions",
+                "iam:ListRolePolicies",
+                "iam:ListRoles",
+                "iam:ListRoleTags",
+                "iam:PassRole",
+                "iam:TagPolicy",
+                "iam:TagRole",
+                "iam:UntagPolicy",
+                "iam:UntagRole",
+                "iam:UpdateRole",
+                "iam:UpdateRoleDescription"
+            "Resource": "arn:aws:iam::${account_id}:*/*-${prefix}*"            
         }
     ]
 }
