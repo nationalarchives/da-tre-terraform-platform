@@ -3,10 +3,12 @@
     "Statement": [
         
         {
-            "Sid": "DenyAll",
-            "Effect": "Deny",
+            "Sid": "PermissionsBoundary",
+            "Effect": "Allow",
             "Action": [
-                "*"
+                "lambda:*",
+                "s3:*",
+                "logs:*"
             ],
             "Resource": "*"
         }
