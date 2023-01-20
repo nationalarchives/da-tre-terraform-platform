@@ -4,6 +4,20 @@ Terraform IaC configuration to deploy AWS resources that must be created
 before the TRE v2 application can be deployed from repository
 [tre-terraform-environments](https://github.com/nationalarchives/tre-terraform-environments).
 
+* [Overview](#overview)
+  * [Repository Structure](#repository-structure)
+  * [Target AWS Environments](#target-aws-environments)
+  * [Terraform Input Variables](#terraform-input-variables)
+  * [Terraform Remote State](#terraform-remote-state)
+  * [GitHub Action Workflow](#github-action-workflow)
+  * [GitHub AWS Access](#github-aws-access)
+    * [OpenID Connect](#openid-connect)
+    * [AWS and GitHub Environments](#aws-and-github-environments)
+    * [GitHub Secrets](#github-secrets)
+* [Running Terraform](#running-terraform)
+  * [Running Terraform Via GitHub Actions](#running-terraform-via-github-actions)
+  * [Running Terraform CLI Locally](#running-terraform-cli-locally)
+
 # Overview
 
 ## Repository Structure
