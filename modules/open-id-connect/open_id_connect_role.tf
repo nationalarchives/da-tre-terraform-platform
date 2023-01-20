@@ -29,9 +29,13 @@ data "aws_iam_policy_document" "tre_github_actions_open_id_connect" {
 resource "aws_iam_policy" "tre_github_actions_open_id_connect" {
   for_each = { for policy in var.tre_github_actions_open_id_connect_policies : policy.name => policy }
   name     = "${var.prefix}-github-actions-open-id-connect-role-${each.value.name}"
-  policy = templatefile("${path.module}/templates/open_id_connect_role_policy.tftpl", {
+  policy = templatefile(each.value.policy_path, {
+    prefix          = var.prefix
     account_id      = var.account_id
+    aws_region      = var.aws_region
     terraform_roles = each.value.terraform_roles
+    tf_state        = each.value.tf_state
+    tf_plan_bucket  = var.tf_plan_bucket
   })
 }
 

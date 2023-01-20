@@ -1,0 +1,64 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CloudWatchLogGroupAccess",
+            "Effect": "Allow",
+            "Action": "logs:CreateLogStream",
+            "Resource": "arn:aws:logs:${aws_region}:${account_id}:log-group:${prefix}-*"
+        },
+        {
+            "Sid": "CloudWatchLogStreamAccess",
+            "Effect": "Allow",
+            "Action": "logs:PutLogEvents",
+            "Resource": "arn:aws:logs:${aws_region}:${account_id}:log-group:${prefix}-*:log-stream:*"
+        },
+        {
+            "Sid": "S3Read",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": [
+                "arn:aws:s3:::${tf_state}",
+                "arn:aws:s3:::${tf_plan_bucket}"
+            ]
+        },
+        {
+            "Sid": "S3Write",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::${tf_state}/*",
+                "arn:aws:s3:::${tf_plan_bucket}/*"
+            ]
+        },
+        {
+            "Sid": "dynamoDBReadAndWrite",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:DescribeTable",
+                "dynamodb:GetItem" 
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:${aws_region}:${account_id}:table/${tf_state}"
+            ]
+        },
+        {
+            "Sid": "ParameterStoreGet",
+            "Effect": "Allow",
+            "Action": "ssm:GetParameters",
+            "Resource": "arn:aws:ssm:${aws_region}:${account_id}:parameter/${prefix}-*"
+        },
+        {
+            "Sid": "STSAssume",
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": ${jsonencode(terraform_roles)}
+        }
+    ]
+}
