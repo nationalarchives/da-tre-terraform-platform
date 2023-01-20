@@ -4,7 +4,9 @@ module "tre_github_actions_open_id_connect" {
   #   tre_repositories = var.tre_repositories
   tre_github_actions_open_id_connect_policies = local.tre_github_actions_open_id_connect_policies
   account_id                                  = data.aws_caller_identity.management.account_id
+  aws_region                                  = data.aws_region.management.name
   tre_github_actions_open_id_connect_roles    = local.tre_github_actions_open_id_connect_roles
+  tf_plan_bucket                              = var.tf_plan_bucket
 }
 
 # ----------------------------------------------------------

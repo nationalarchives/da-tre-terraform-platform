@@ -1,7 +1,9 @@
 locals {
   tre_github_actions_open_id_connect_policies = [
     {
-      name = "tf-backend"
+      name        = "tf-backend"
+      policy_path = "./templates/open-id-connect-role-policy/tf_backend_open_id_connect_role_policy.tftpl"
+      tf_state    = var.tf_state_platform
       terraform_roles = [
         module.tre_prod_terraform_roles.tre_terraform_backend_role_arn,
         module.tre_nonprod_terraform_roles.tre_terraform_backend_role_arn,
@@ -10,7 +12,9 @@ locals {
       ]
     },
     {
-      name = "platform"
+      name        = "platform"
+      policy_path = "./templates/open-id-connect-role-policy/platform_open_id_connect_role_policy.tftpl"
+      tf_state    = var.tf_state_platform
       terraform_roles = [
         module.tre_prod_terraform_roles.terraform_role_arn,
         module.tre_nonprod_terraform_roles.terraform_role_arn,
@@ -19,13 +23,17 @@ locals {
       ]
     },
     {
-      name = "nonprod"
+      name        = "nonprod"
+      policy_path = "./templates/open-id-connect-role-policy/env_open_id_connect_role_policy.tftpl"
+      tf_state    = var.tf_state_environments
       terraform_roles = [
         module.tre_nonprod_terraform_roles.terraform_role_arn,
       ]
     },
     {
-      name = "prod"
+      name        = "prod"
+      policy_path = "./templates/open-id-connect-role-policy/env_open_id_connect_role_policy.tftpl"
+      tf_state    = var.tf_state_environments
       terraform_roles = [
         module.tre_prod_terraform_roles.terraform_role_arn
       ]
@@ -51,4 +59,3 @@ locals {
     }
   ]
 }
-

@@ -38,4 +38,17 @@ variable "tre_nonprod_repositories" {
   type        = list(string)
 }
 
+variable "tf_plan_bucket" {
+  description = "Name of bucket where tf_plan is sent from GitHub Actions"
+  type        = string
+}
 
+variable "tf_state_platform" {
+  description = "Terraform state name for platform"
+  type        = string
+}
+
+variable "tf_state_environments" {
+  description = "Terraform state name for environments"
+  type        = string
+}
