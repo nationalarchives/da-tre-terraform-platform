@@ -51,7 +51,7 @@ provider "aws" {
       CostCentre      = "56"
       Role            = "prvt"
     }
-  }  
+  }
 }
 
 provider "aws" {
@@ -70,7 +70,7 @@ provider "aws" {
       CostCentre      = "56"
       Role            = "prvt"
     }
-  }  
+  }
 }
 
 terraform {
