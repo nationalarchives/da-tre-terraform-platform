@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "tre_assume_role_terraform" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = [var.roles_can_assume_terraform_role]
+      identifiers = var.roles_can_assume_terraform_role
     }
     condition {
       test     = "StringEquals"
@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "tre_assume_role_terraform_backend" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = [var.roles_can_assume_terraform_backend_role]
+      identifiers = var.roles_can_assume_terraform_backend_role
     }
     condition {
       test     = "StringEquals"
