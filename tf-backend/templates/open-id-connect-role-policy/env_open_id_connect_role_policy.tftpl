@@ -2,22 +2,25 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "CloudWatchAccess",
+            "Sid": "CloudWatchLogGroupAccess",
             "Effect": "Allow",
-            "Action": [
-                "logs:Describe*",
-                "logs:Get*",
-                "logs:List*",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-            ],
-            "Resource": "arn:aws:logs:eu-west-2:${account_id}:*:*"
+            "Action": "logs:CreateLogStream",
+            "Resource": "arn:aws:logs:${aws_region}:${account_id}:log-group:${prefix}-*"
+        },
+        {
+            "Sid": "CloudWatchLogStreamAccess",
+            "Effect": "Allow",
+            "Action": "logs:PutLogEvents",
+            "Resource": "arn:aws:logs:${aws_region}:${account_id}:log-group:${prefix}-*:log-stream:*"
         },
         {
             "Sid": "S3Read",
             "Effect": "Allow",
             "Action": "s3:ListBucket",
-            "Resource": "arn:aws:s3:::*"
+            "Resource": [
+                "arn:aws:s3:::${tf_state}",
+                "arn:aws:s3:::${tf_plan_bucket}"
+            ]
         },
         {
             "Sid": "S3Write",
@@ -27,7 +30,10 @@
                 "s3:GetObject",
                 "s3:DeleteObject"
             ],
-            "Resource": "arn:aws:s3:::*/*"
+            "Resource": [
+                "arn:aws:s3:::${tf_state}/*",
+                "arn:aws:s3:::${tf_plan_bucket}/*"
+            ]
         },
         {
             "Sid": "dynamoDBReadAndWrite",
@@ -39,38 +45,20 @@
                 "dynamodb:GetItem" 
             ],
             "Resource": [
-                "arn:aws:dynamodb:*:${account_id}:table/*"
+                "arn:aws:dynamodb:${aws_region}:${account_id}:table/${tf_state}"
             ]
         },
         {
             "Sid": "ParameterStoreGet",
             "Effect": "Allow",
             "Action": "ssm:GetParameters",
-            "Resource": "arn:aws:ssm:*:${account_id}:parameter/*"
+            "Resource": "arn:aws:ssm:${aws_region}:${account_id}:parameter/${prefix}-*"
         },
         {
             "Sid": "STSAssume",
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
             "Resource": ${jsonencode(terraform_roles)}
-        },
-        {
-            "Sid": "ECRAccess",
-            "Effect": "Allow",
-            "Action": "ecr:*",
-            "Resource": "*"
-        },
-        {
-            "Sid": "CodeArtifactAccess",
-            "Effect": "Allow",
-            "Action": "codeartifact:*",
-            "Resource": "*"
-        },
-        {
-            "Sid": "AllowServiceBearerToken",
-            "Effect": "Allow",
-            "Action": "sts:GetServiceBearerToken",
-            "Resource": "*"
         }
     ]
 }
