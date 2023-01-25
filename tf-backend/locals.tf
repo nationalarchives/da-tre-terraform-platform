@@ -7,7 +7,6 @@ locals {
       terraform_roles = [
         module.tre_prod_terraform_roles.tre_terraform_backend_role_arn,
         module.tre_nonprod_terraform_roles.tre_terraform_backend_role_arn,
-        module.tre_users_terraform_roles.tre_terraform_backend_role_arn,
         module.tre_management_terraform_roles.tre_terraform_backend_role_arn
       ]
     },
@@ -18,7 +17,6 @@ locals {
       terraform_roles = [
         module.tre_prod_terraform_roles.terraform_role_arn,
         module.tre_nonprod_terraform_roles.terraform_role_arn,
-        module.tre_users_terraform_roles.terraform_role_arn,
         module.tre_management_terraform_roles.terraform_role_arn
       ]
     },

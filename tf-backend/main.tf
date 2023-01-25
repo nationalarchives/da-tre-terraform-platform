@@ -27,24 +27,6 @@ module "tre_management_terraform_roles" {
   account_id                              = data.aws_caller_identity.management.account_id
 }
 
-module "tre_users_terraform_roles" {
-  source                                  = "../modules/terraform-roles"
-  external_id                             = var.external_id
-  roles_can_assume_terraform_role         = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform]
-  roles_can_assume_terraform_backend_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend]
-  prefix                                  = var.prefix
-  permission_boundary_policy_path         = "./templates/permission-boundary-policy/users.tftpl"
-  terraform_policy_path                   = "./templates/terraform-role-policy/users.tftpl"
-  providers = {
-    aws = aws.users
-  }
-  terraform_iam_policy_path          = "./templates/terraform-iam-policy/users.tftpl"
-  terraform_backend_policy_path      = "./templates/terraform-backend-role-policy/users.tftpl"
-  tre_policies_managed_by_tf_backend = []
-  tre_roles_managed_by_tf_backend    = []
-  account_id                         = data.aws_caller_identity.users.account_id
-}
-
 module "tre_nonprod_terraform_roles" {
   source      = "../modules/terraform-roles"
   external_id = var.external_id

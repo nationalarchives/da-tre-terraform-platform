@@ -7,7 +7,6 @@ variable "assume_roles" {
   description = "role ARNs to be assumed"
   type = object({
     mngmt   = string
-    users   = string
     nonprod = string
     prod    = string
   })
