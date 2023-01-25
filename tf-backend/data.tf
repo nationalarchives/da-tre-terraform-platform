@@ -1,11 +1,3 @@
-data "aws_iam_policy_document" "tre_terraform_backend" {
-  statement {
-    effect    = "Allow"
-    actions   = ["iam:*"]
-    resources = ["*"]
-  }
-}
-
 data "aws_caller_identity" "management" {
   provider = aws
 }
