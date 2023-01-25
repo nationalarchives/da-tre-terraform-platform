@@ -4,8 +4,13 @@ resource "aws_iam_role" "tre_terraform_backend" {
 }
 
 resource "aws_iam_policy" "tre_terraform_backend" {
-  name   = "${var.prefix}-terraform-backend"
-  policy = var.tre_terraform_backend_policy
+  name = "${var.prefix}-terraform-backend"
+  policy = templatefile(var.terraform_backend_policy_path, {
+    prefix                             = var.prefix
+    account_id                         = var.account_id
+    tre_roles_managed_by_tf_backend    = var.tre_roles_managed_by_tf_backend
+    tre_policies_managed_by_tf_backend = var.tre_policies_managed_by_tf_backend
+  })
 }
 
 resource "aws_iam_role_policy_attachment" "tre_terraform_backend" {

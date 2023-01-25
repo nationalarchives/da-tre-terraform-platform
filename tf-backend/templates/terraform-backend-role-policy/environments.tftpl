@@ -1,0 +1,56 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "IAMRole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:UpdateAssumeRolePolicy",
+                "iam:ListRoleTags",
+                "iam:UntagRole",
+                "iam:TagRole",
+                "iam:UpdateRoleDescription",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:AttachRolePolicy",
+                "iam:PutRolePolicy",
+                "iam:GetServiceLinkedRoleDeletionStatus",
+                "iam:PassRole",
+                "iam:CreateServiceLinkedRole",
+                "iam:DetachRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:DeleteRolePolicy",
+                "iam:UpdateRole",
+                "iam:DeleteServiceLinkedRole",
+                "iam:ListRolePolicies",
+                "iam:GetRolePolicy"
+            ],
+            "Resource": ${jsonencode(tre_roles_managed_by_tf_backend)}
+        },
+        {
+            "Sid": "IAMRoleList",
+            "Effect": "Allow",
+            "Action": "iam:ListRoles",
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMPoliciy",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreatePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:DeletePolicy",
+                "iam:DeletePolicyVersion",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:ListEntitiesForPolicy",
+                "iam:ListPolicyTags",
+                "iam:ListPolicyVersions",
+                "iam:TagPolicy",
+                "iam:UntagPolicy"
+            ],
+            "Resource": ${jsonencode(tre_policies_managed_by_tf_backend)}
+        }               
+    ]
+}
