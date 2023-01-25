@@ -88,12 +88,29 @@
             "Sid": "CodeArtifactAccess",
             "Effect": "Allow",
             "Action": [
+                "codeartifact:CopyPackageVersions",
+                "codeartifact:DeletePackageVersions",
+                "codeartifact:DescribePackage",
+                "codeartifact:DescribePackageVersion",
+                "codeartifact:DisposePackageVersions",
                 "codeartifact:GetAuthorizationToken",
-                "codeartifact:GetRepositoryEndpoint"
+                "codeartifact:GetPackageVersionAsset",
+                "codeartifact:GetPackageVersionReadme",
+                "codeartifact:GetRepositoryEndpoint",
+                "codeartifact:ListPackages",
+                "codeartifact:ListPackageVersionAssets",
+                "codeartifact:ListPackageVersionDependencies",
+                "codeartifact:ListPackageVersions",
+                "codeartifact:PublishPackageVersion",
+                "codeartifact:PutPackageMetadata",
+                "codeartifact:PutPackageOriginConfiguration",
+                "codeartifact:ReadFromRepository",
+                "codeartifact:UpdatePackageVersionsStatus"
             ],
             "Resource": [
                 "arn:aws:codeartifact:${aws_region}:${account_id}:domain/${prefix}-*",
-                "arn:aws:codeartifact:${aws_region}:${account_id}:repository/${prefix}-*/*"
+                "arn:aws:codeartifact:${aws_region}:${account_id}:repository/${prefix}-*/*",
+                "arn:aws:codeartifact:${aws_region}:${account_id}:package/${prefix}-*/*/*/*/*"              
             ]
         },
         {
