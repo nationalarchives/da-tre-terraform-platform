@@ -15,7 +15,7 @@
             "Sid": "STSAssume",
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": ${jsonencode(v2_testing_roles)}
+            "Resource": ${jsonencode(roles_can_assume)}
         }        
     ]
 }

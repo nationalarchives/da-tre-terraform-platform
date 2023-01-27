@@ -5,7 +5,7 @@ resource "aws_iam_role" "v2_github_action_testing" {
 
 resource "aws_iam_policy" "v2_github_action_testing" {
   name = "${var.prefix}-v2-github-action-testing"
-  policy = templatefile(var.v2_github_action_testting_policy_path, {
+  policy = templatefile(var.v2_github_action_testing_policy_path, {
     
   })
 }

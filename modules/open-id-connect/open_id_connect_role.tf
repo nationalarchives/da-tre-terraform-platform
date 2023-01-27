@@ -33,10 +33,9 @@ resource "aws_iam_policy" "tre_github_actions_open_id_connect" {
     prefix          = var.prefix
     account_id      = var.account_id
     aws_region      = var.aws_region
-    terraform_roles = each.value.terraform_roles
+    roles_can_assume = each.value.roles_can_assume
     tf_state        = each.value.tf_state
     tf_plan_bucket  = var.tf_plan_bucket
-    v2_testing_roles = each.value.v2_testing_roles
   })
 }
 

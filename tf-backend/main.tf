@@ -71,25 +71,11 @@ module "tre_prod_terraform_roles" {
 
 # Roles grant access to GitHub action to execute tests
 module "nonprod_v2_github_action_testing_roles" {
-  source = "../modules/v2-testing"
+  source = "../modules/v2-github-action-testing"
   prefix = var.prefix
   roles_can_assume_v2_github_action_testing_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.v2-testing]
-  v2_github_action_testting_policy_path = "./templates/v2-github-action-testing-role-policy/nonprod.tftpl"
+  v2_github_action_testing_policy_path = "./templates/v2-github-action-testing-role-policy/nonprod.tftpl"
   providers = {
     aws = aws.nonprod
   }  
 }
-
-# Placeholder for "prod_v2_github_action_testing_roles" if required
-
-/*
-module "prod_v2_github_action_testing_roles" {
-  source = "../modules/v2-testing"
-  prefix = var.prefix
-  roles_can_assume_v2_github_action_testing_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.v2-testing]
-  v2_github_action_testting_policy_path = "./templates/v2-github-action-testing-role-policy/prod.tftpl"
-  providers = {
-    aws = aws.prod
-  }  
-}
-*/

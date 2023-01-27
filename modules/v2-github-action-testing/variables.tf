@@ -8,7 +8,7 @@ variable "roles_can_assume_v2_github_action_testing_role" {
   type        = list(string)
 }
 
-variable "v2_github_action_testting_policy_path" {
+variable "v2_github_action_testing_policy_path" {
   description = "Path to the tre v2-testing role policy"
   type        = string
 }
