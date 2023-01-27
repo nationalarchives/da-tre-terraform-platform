@@ -18,6 +18,7 @@ variable "tre_github_actions_open_id_connect_policies" {
     policy_path     = string
     terraform_roles = list(string)
     tf_state        = string
+    v2_testing_roles = list(string)
   }))
 }
 

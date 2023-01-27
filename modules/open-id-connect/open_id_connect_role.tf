@@ -36,6 +36,7 @@ resource "aws_iam_policy" "tre_github_actions_open_id_connect" {
     terraform_roles = each.value.terraform_roles
     tf_state        = each.value.tf_state
     tf_plan_bucket  = var.tf_plan_bucket
+    v2_testing_roles = each.value.v2_testing_roles
   })
 }
 

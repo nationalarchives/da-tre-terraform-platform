@@ -9,6 +9,7 @@ locals {
         module.tre_nonprod_terraform_roles.tre_terraform_backend_role_arn,
         module.tre_management_terraform_roles.tre_terraform_backend_role_arn
       ]
+      v2_testing_roles =[]
     },
     {
       name        = "platform"
@@ -19,6 +20,7 @@ locals {
         module.tre_nonprod_terraform_roles.terraform_role_arn,
         module.tre_management_terraform_roles.terraform_role_arn
       ]
+      v2_testing_roles = []
     },
     {
       name        = "nonprod"
@@ -27,6 +29,7 @@ locals {
       terraform_roles = [
         module.tre_nonprod_terraform_roles.terraform_role_arn
       ]
+      v2_testing_roles = []
     },
     {
       name        = "prod"
@@ -35,7 +38,17 @@ locals {
       terraform_roles = [
         module.tre_prod_terraform_roles.terraform_role_arn
       ]
-    }
+      v2_testing_roles = []
+    },
+    {
+      name        = "v2-testing"
+      policy_path = "./templates/open-id-connect-role-policy/v2-github-action-testing.tftpl"
+      tf_state    = ""
+      terraform_roles = []
+      v2_testing_roles = [
+        module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn
+      ]
+    }    
   ]
 
   tre_github_actions_open_id_connect_roles = [
@@ -54,6 +67,10 @@ locals {
     {
       name             = "prod"
       tre_repositories = var.tre_prod_repositories
+    },
+    {
+      name             = "v2-testing"
+      tre_repositories = var.tre_nonprod_repositories      
     }
   ]
 
