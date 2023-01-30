@@ -26,7 +26,7 @@
                 "iam:ListRolePolicies",
                 "iam:GetRolePolicy"
             ],
-            "Resource": ${jsonencode(tre_roles_managed_by_tf_backend)}
+            "Resource": "arn:aws:iam::${account_id}:role/${prefix}-*"
         },
         {
             "Sid": "IAMRoleList",
@@ -50,7 +50,7 @@
                 "iam:TagPolicy",
                 "iam:UntagPolicy"
             ],
-            "Resource": ${jsonencode(tre_policies_managed_by_tf_backend)}
+            "Resource": "arn:aws:iam::${account_id}:policy/${prefix}-*"
         }               
     ]
 }

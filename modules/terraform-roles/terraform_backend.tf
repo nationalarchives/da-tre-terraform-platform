@@ -8,8 +8,6 @@ resource "aws_iam_policy" "tre_terraform_backend" {
   policy = templatefile(var.terraform_backend_policy_path, {
     prefix                             = var.prefix
     account_id                         = var.account_id
-    tre_roles_managed_by_tf_backend    = var.tre_roles_managed_by_tf_backend
-    tre_policies_managed_by_tf_backend = var.tre_policies_managed_by_tf_backend
   })
 }
 
