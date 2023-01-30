@@ -58,7 +58,7 @@
             "Sid": "STSAssume",
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": ${jsonencode(terraform_roles)}
+            "Resource": ${jsonencode(roles_can_assume)}
         }
     ]
 }

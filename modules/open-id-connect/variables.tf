@@ -4,7 +4,7 @@ variable "prefix" {
 }
 
 variable "tre_github_actions_open_id_connect_roles" {
-  description = "List TRE repositories that require access to tre AWS Accounts"
+  description = "List of tre_github_actions_open_id_connect roles"
   type = list(object({
     name             = string
     tre_repositories = list(string)
@@ -12,11 +12,11 @@ variable "tre_github_actions_open_id_connect_roles" {
 }
 
 variable "tre_github_actions_open_id_connect_policies" {
-  description = "List TRE repositories that require access to tre AWS Accounts"
+  description = "List of tre_github_actions_open_id_connect policies"
   type = list(object({
     name            = string
     policy_path     = string
-    terraform_roles = list(string)
+    roles_can_assume = list(string)
     tf_state        = string
   }))
 }
