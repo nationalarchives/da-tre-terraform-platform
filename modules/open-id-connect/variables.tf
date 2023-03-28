@@ -14,10 +14,10 @@ variable "tre_github_actions_open_id_connect_roles" {
 variable "tre_github_actions_open_id_connect_policies" {
   description = "List of tre_github_actions_open_id_connect policies"
   type = list(object({
-    name            = string
-    policy_path     = string
+    name             = string
+    policy_path      = string
     roles_can_assume = list(string)
-    tf_state        = string
+    tf_state         = string
   }))
 }
 

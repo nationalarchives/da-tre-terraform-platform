@@ -42,7 +42,7 @@
                 "dynamodb:PutItem",
                 "dynamodb:DeleteItem",
                 "dynamodb:DescribeTable",
-                "dynamodb:GetItem" 
+                "dynamodb:GetItem"
             ],
             "Resource": [
                 "arn:aws:dynamodb:${aws_region}:${account_id}:table/${tf_state}"
@@ -110,12 +110,12 @@
             "Resource": [
                 "arn:aws:codeartifact:${aws_region}:${account_id}:domain/${prefix}-*",
                 "arn:aws:codeartifact:${aws_region}:${account_id}:repository/${prefix}-*/*",
-                "arn:aws:codeartifact:${aws_region}:${account_id}:package/${prefix}-*/*/*/*/*"              
+                "arn:aws:codeartifact:${aws_region}:${account_id}:package/${prefix}-*/*/*/*/*"
             ]
         },
         {
             "Sid": "AllowServiceBearerToken",
-            "Effect": "Allow",  
+            "Effect": "Allow",
             "Action": "sts:GetServiceBearerToken",
             "Resource": "*"
         }
