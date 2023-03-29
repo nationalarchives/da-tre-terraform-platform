@@ -30,12 +30,12 @@ resource "aws_iam_policy" "tre_github_actions_open_id_connect" {
   for_each = { for policy in var.tre_github_actions_open_id_connect_policies : policy.name => policy }
   name     = "${var.prefix}-github-actions-open-id-connect-role-${each.value.name}"
   policy = templatefile(each.value.policy_path, {
-    prefix          = var.prefix
-    account_id      = var.account_id
-    aws_region      = var.aws_region
+    prefix           = var.prefix
+    account_id       = var.account_id
+    aws_region       = var.aws_region
     roles_can_assume = each.value.roles_can_assume
-    tf_state        = each.value.tf_state
-    tf_plan_bucket  = var.tf_plan_bucket
+    tf_state         = each.value.tf_state
+    tf_plan_bucket   = var.tf_plan_bucket
   })
 }
 

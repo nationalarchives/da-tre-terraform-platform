@@ -43,7 +43,7 @@ locals {
       roles_can_assume = [
         module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn
       ]
-    }    
+    }
   ]
 
   tre_github_actions_open_id_connect_roles = [
@@ -65,7 +65,7 @@ locals {
     },
     {
       name             = "v2-testing"
-      tre_repositories = var.tre_nonprod_repositories      
+      tre_repositories = var.tre_nonprod_repositories
     }
   ]
 
@@ -94,7 +94,7 @@ locals {
   tre_roles_managed_by_tf_backend_nonprod = [
     module.tre_nonprod_terraform_roles.tre_terraform_backend_role_arn,
     module.tre_nonprod_terraform_roles.terraform_role_arn,
-    module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn    
+    module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn
   ]
 
   tre_policies_managed_by_tf_backend_nonprod = [
