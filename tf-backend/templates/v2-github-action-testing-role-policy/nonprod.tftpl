@@ -6,6 +6,8 @@
             "Sid": "TestAccess",
             "Effect": "Allow",
             "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
                 "s3:*",
                 "sns:*",
                 "state:*"

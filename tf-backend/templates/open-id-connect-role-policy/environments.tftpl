@@ -49,11 +49,20 @@
             ]
         },
         {
-            "Sid": "ParameterStoreGet",
+            "Sid": "ParameterStore",
             "Effect": "Allow",
-            "Action": "ssm:GetParameters",
+            "Action": [
+                "ssm:GetParameters",
+                "ssm:PutParameter"
+            ],
             "Resource": "arn:aws:ssm:${aws_region}:${account_id}:parameter/${prefix}-*"
         },
+        {
+            "Sid": "ParameterStoreDescribe",
+            "Effect": "Allow",
+            "Action": "ssm:DescribeParameters",
+            "Resource": "*"
+        },      
         {
             "Sid": "STSAssume",
             "Effect": "Allow",
