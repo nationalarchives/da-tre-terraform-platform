@@ -1,7 +1,7 @@
 {
     "Version": "2012-10-17",
     "Statement": [
-        
+
         {
             "Sid": "TestAccess",
             "Effect": "Allow",
@@ -16,6 +16,6 @@
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
             "Resource": ${jsonencode(roles_can_assume)}
-        }        
+        }
     ]
 }

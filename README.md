@@ -63,9 +63,9 @@ The state and workspace info is held in an `s3` bucket in the TRE management
 account; i.e.:
 
 ```bash
-~ % aws s3 ls "${TRE_TF_STATE_S3_BUCKET}"          
+~ % aws s3 ls "${TRE_TF_STATE_S3_BUCKET}"
                            PRE env:/
-~ % aws s3 ls "${TRE_TF_STATE_S3_BUCKET}/env:/"    
+~ % aws s3 ls "${TRE_TF_STATE_S3_BUCKET}/env:/"
                            PRE platform/
                            PRE tf-backend/
 ~ %

@@ -12,7 +12,7 @@ on:
         description: tre-github-action repo ref
         type: string
         required: false
-        default: main          
+        default: main
 permissions:
   id-token: write
   contents: write
