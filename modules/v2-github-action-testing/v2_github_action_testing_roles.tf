@@ -11,6 +11,6 @@ resource "aws_iam_policy" "v2_github_action_testing" {
 }
 
 resource "aws_iam_role_policy_attachment" "v2_github_action_testing" {
-  role = aws_iam_role.v2_github_action_testing.arn
+  role = aws_iam_role.v2_github_action_testing.name
   policy_arn = aws_iam_policy.v2_github_action_testing.arn
 }
