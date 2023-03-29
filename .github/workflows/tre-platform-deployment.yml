@@ -8,16 +8,22 @@ on:
         options:
           - tf-backend
           - platform
+      github_action_ref:
+        description: tre-github-action repo ref
+        type: string
+        required: false
+        default: main          
 permissions:
   id-token: write
   contents: write
 jobs:
   terraform-deployment:
-    uses: nationalarchives/tre-github-actions/.github/workflows/tf-plan-approve-apply.yml@0.0.5
+    uses: nationalarchives/tre-github-actions/.github/workflows/tf-plan-approve-apply.yml@0.0.7
     with:
-      environment: ${{ inputs.environment }}
-      environment-for-approval: apply-tf-plan-${{ inputs.environment }}
+      github_environment: ${{ inputs.environment }}
+      tre_environment: ${{ inputs.environment }}
       tf_dir: ${{ inputs.environment }}
+      github_action_ref: ${{ inputs.github_action_ref }}
     secrets:
       ROLE_ARN: ${{ secrets.ROLE_ARN }}
       AWS_PARAM_STORE_TF_BACKEND_KEY: ${{ secrets.AWS_PARAM_STORE_TF_BACKEND_KEY }}
