@@ -53,6 +53,7 @@
             "Effect": "Allow",
             "Action": [
                 "ssm:GetParameters",
+                "ssm:DeleteParameter",
                 "ssm:PutParameter"
             ],
             "Resource": "arn:aws:ssm:${aws_region}:${account_id}:parameter/${prefix}-*"
