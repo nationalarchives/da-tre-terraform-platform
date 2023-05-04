@@ -196,6 +196,18 @@
                 "states:UpdateStateMachine"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "Firehose",
+            "Effect": "Allow",
+            "Action": [
+                "firehose:CreateDeliveryStream",
+                "firehose:DescribeDeliveryStream",
+                "firehose:ListTagsForDeliveryStream",
+                "firehose:DeleteDeliveryStream",
+                "firehose:UpdateDestination"
+            ],
+            "Resource": "*"
         }
     ]
 }
