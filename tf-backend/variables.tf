@@ -12,11 +12,6 @@ variable "assume_roles" {
   })
 }
 
-variable "external_id" {
-  description = "External ID for cross account roles"
-  type        = string
-}
-
 variable "tre_backend_repository" {
   description = "TRE platform repository that requires access to TRE AWS accounts to make changes to Terraform backend"
   type        = list(string)

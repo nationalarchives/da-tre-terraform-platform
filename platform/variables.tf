@@ -11,8 +11,3 @@ variable "assume_roles" {
     prod    = string
   })
 }
-
-variable "external_id" {
-  description = "External ID for cross account roles"
-  type        = string
-}
