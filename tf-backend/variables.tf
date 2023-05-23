@@ -46,3 +46,8 @@ variable "tf_state_environments" {
   description = "Terraform state name for environments"
   type        = string
 }
+
+variable "additional_roles_who_can_assume_terraform_roles" {
+  description = "List of ARNs of principles who can assume the tre-terraform and tre-terraform-backend roles beyond Github"
+  type        = list(string)
+}
