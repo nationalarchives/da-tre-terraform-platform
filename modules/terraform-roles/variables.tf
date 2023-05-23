@@ -47,8 +47,3 @@ variable "account_id" {
   description = "AWS Account ID"
   type        = string
 }
-
-variable "external_id" {
-  description = "Zaizi external ID for role assumption"
-  type        = string
-}

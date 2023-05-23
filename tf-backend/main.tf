@@ -14,7 +14,6 @@ module "tre_github_actions_open_id_connect" {
 # TRE Environments Terraform Roles Modules
 module "tre_management_terraform_roles" {
   source                                  = "../modules/terraform-roles"
-  external_id                             = var.external_id
   roles_can_assume_terraform_role         = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform]
   roles_can_assume_terraform_backend_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend]
   prefix                                  = var.prefix
@@ -28,8 +27,7 @@ module "tre_management_terraform_roles" {
 }
 
 module "tre_nonprod_terraform_roles" {
-  source      = "../modules/terraform-roles"
-  external_id = var.external_id
+  source = "../modules/terraform-roles"
   roles_can_assume_terraform_role = [
     module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform,
     module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.nonprod
@@ -49,8 +47,7 @@ module "tre_nonprod_terraform_roles" {
 }
 
 module "tre_prod_terraform_roles" {
-  source      = "../modules/terraform-roles"
-  external_id = var.external_id
+  source = "../modules/terraform-roles"
   roles_can_assume_terraform_role = [
     module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform,
     module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.prod
