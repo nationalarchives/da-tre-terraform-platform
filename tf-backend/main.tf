@@ -14,8 +14,8 @@ module "tre_github_actions_open_id_connect" {
 # TRE Environments Terraform Roles Modules
 module "tre_management_terraform_roles" {
   source                                  = "../modules/terraform-roles"
-  roles_can_assume_terraform_role         = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform]
-  roles_can_assume_terraform_backend_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend]
+  roles_can_assume_terraform_role         = concat([module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform], var.additional_roles_who_can_assume_terraform_roles)
+  roles_can_assume_terraform_backend_role = concat([module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend], var.additional_roles_who_can_assume_terraform_roles)
   prefix                                  = var.prefix
   permission_boundary_policy_path         = "./templates/permission-boundary-policy/management.tftpl"
   terraform_policy_path                   = "./templates/terraform-role-policy/management.tftpl"
@@ -28,11 +28,9 @@ module "tre_management_terraform_roles" {
 
 module "tre_nonprod_terraform_roles" {
   source = "../modules/terraform-roles"
-  roles_can_assume_terraform_role = [
-    module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform,
-    module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.nonprod
-  ]
-  roles_can_assume_terraform_backend_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend]
+  roles_can_assume_terraform_role = concat([
+  module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform, module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.nonprod], var.additional_roles_who_can_assume_terraform_roles)
+  roles_can_assume_terraform_backend_role = concat([module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend], var.additional_roles_who_can_assume_terraform_roles)
   prefix                                  = var.prefix
   permission_boundary_policy_path         = "./templates/permission-boundary-policy/environments.tftpl"
   terraform_policy_path                   = "./templates/terraform-role-policy/environments.tftpl"
@@ -48,11 +46,11 @@ module "tre_nonprod_terraform_roles" {
 
 module "tre_prod_terraform_roles" {
   source = "../modules/terraform-roles"
-  roles_can_assume_terraform_role = [
+  roles_can_assume_terraform_role = concat([
     module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.platform,
     module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.prod
-  ]
-  roles_can_assume_terraform_backend_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend]
+  ], var.additional_roles_who_can_assume_terraform_roles)
+  roles_can_assume_terraform_backend_role = concat([module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.tf-backend], var.additional_roles_who_can_assume_terraform_roles)
   prefix                                  = var.prefix
   permission_boundary_policy_path         = "./templates/permission-boundary-policy/environments.tftpl"
   terraform_policy_path                   = "./templates/terraform-role-policy/environments.tftpl"
