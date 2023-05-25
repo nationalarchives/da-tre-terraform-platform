@@ -65,7 +65,7 @@ locals {
     },
     {
       name             = "v2-testing"
-      tre_repositories = var.tre_nonprod_repositories
+      tre_repositories = var.tre_testing_repositories
     }
   ]
 

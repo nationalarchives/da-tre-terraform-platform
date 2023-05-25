@@ -32,6 +32,11 @@ variable "tre_nonprod_repositories" {
   type        = list(string)
 }
 
+variable "tre_testing_repositories" {
+  description = "List of TRE repositories that can access the testing role"
+  type        = list(string)
+}
+
 variable "tf_plan_bucket" {
   description = "Name of bucket where tf_plan is sent from GitHub Actions"
   type        = string
