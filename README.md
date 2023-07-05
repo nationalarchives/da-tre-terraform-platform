@@ -132,8 +132,8 @@ The following GitHub secrets are used when running the GitHub Action workflow:
 
 To manually trigger this repository's deployment workflow:
 
-* Navigate to the repository's GitHub [`actions`](https://github.com/nationalarchives/tre-terraform-platform/actions) tab
-* Select the [`Terraform platform deployment`](`https://github.com/nationalarchives/tre-terraform-platform/actions/workflows/tre-platform-deployment.yml`) action from the side menu
+* Navigate to the repository's GitHub [`actions`](https://github.com/nationalarchives/da-tre-terraform-platform/actions) tab
+* Select the [`Terraform platform deployment`](`https://github.com/nationalarchives/da-tre-terraform-platform/actions/workflows/tre-platform-deployment.yml`) action from the side menu
 * Click the grey `Run workflow` drop-down button
 * Select the branch holding the configuration to be applied (typically `main`)
 * Select the deployment that is to be applied, i.e. `platform` or `tf-backend`

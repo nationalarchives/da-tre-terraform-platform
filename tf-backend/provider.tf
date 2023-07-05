@@ -8,7 +8,7 @@ provider "aws" {
       Environment     = "tf-backend"
       Owner           = "digital-archiving"
       Terraform       = true
-      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      TerraformSource = "https://github.com/nationalarchives/da-tre-terraform-platform"
       CostCentre      = "56"
       Role            = "prvt"
     }
@@ -26,7 +26,7 @@ provider "aws" {
       Environment     = "tf-backend"
       Owner           = "digital-archiving"
       Terraform       = true
-      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      TerraformSource = "https://github.com/nationalarchives/da-tre-terraform-platform"
       CostCentre      = "56"
       Role            = "prvt"
     }
@@ -44,7 +44,7 @@ provider "aws" {
       Environment     = "tf-backend"
       Owner           = "digital-archiving"
       Terraform       = true
-      TerraformSource = "https://github.com/nationalarchives/tre-terraform-platform"
+      TerraformSource = "https://github.com/nationalarchives/da-tre-terraform-platform"
       CostCentre      = "56"
       Role            = "prvt"
     }
