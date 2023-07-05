@@ -18,7 +18,7 @@ permissions:
   contents: write
 jobs:
   terraform-deployment:
-    uses: nationalarchives/tre-github-actions/.github/workflows/tf-plan-approve-apply.yml@0.0.7
+    uses: nationalarchives/da-tre-github-actions/.github/workflows/tf-plan-approve-apply.yml@0.0.7
     with:
       github_environment: ${{ inputs.environment }}
       tre_environment: ${{ inputs.environment }}

@@ -80,7 +80,7 @@ The Terraform configuration in this repository can be deployed by manually
 triggering the following workflow:
 
 * [`tre-platform-deployment.yml`](.github/workflows/tre-platform-deployment.yml) <sup>this repo</sup>
-  * [`tf-plan-approve-apply.yml`](https://github.com/nationalarchives/tre-github-actions/blob/main/.github/workflows/tf-plan-approve-apply.yml) <sup>[tre-github-actions repo](https://github.com/nationalarchives/tre-github-actions)</sup>
+  * [`tf-plan-approve-apply.yml`](https://github.com/nationalarchives/da-tre-github-actions/blob/main/.github/workflows/tf-plan-approve-apply.yml) <sup>[tre-github-actions repo](https://github.com/nationalarchives/tre-github-actions)</sup>
 
 The workflow controls deployment, with manual checkpoints allowing
 configuration changes to be verified before they are applied.
