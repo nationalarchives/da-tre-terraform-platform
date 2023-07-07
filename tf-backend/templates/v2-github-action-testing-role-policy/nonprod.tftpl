@@ -1,18 +1,28 @@
 {
     "Version": "2012-10-17",
     "Statement": [
-
         {
             "Sid": "TestAccess",
             "Effect": "Allow",
             "Action": [
                 "kms:Decrypt",
                 "kms:GenerateDataKey",
-                "s3:*",
-                "sns:*",
-                "state:*"
+                "sns:Subscribe",
+                "sns:Unsubscribe",
+                "sns:SetSubscriptionAttributes",
+                "sqs:CreateQueue",
+                "sqs:DeleteMessage",
+                "sqs:DeleteQueue",
+                "sqs:ReceiveMessage",
+                "sqs:SetQueueAttributes",
+                "sts:GetCallerIdentity"
             ],
-            "Resource": "*"
+            "Resource": [
+                "arn:aws:sns:${aws_region}:${account_id}:*-tre-in",
+                "arn:aws:sns:${aws_region}:${account_id}:*-tre-internal",
+                "arn:aws:sns:${aws_region}:${account_id}:*-tre-out",
+                "arn:aws:sqs:${aws_region}:${account_id}:*-temp-out-testing",
+            ]
         }
     ]
 }
