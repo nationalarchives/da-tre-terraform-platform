@@ -37,13 +37,6 @@
             "Resource": [
                 "arn:aws:sqs:${aws_region}:${account_id}:*-temp-out-testing"
             ]
-        },
-        {
-            "Sid": "STSAccess",
-            "Effect": "Allow",
-            "Action": [
-                "sts:GetCallerIdentity"
-            ]
         }
     ]
 }
