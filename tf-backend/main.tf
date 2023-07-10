@@ -68,6 +68,8 @@ module "tre_prod_terraform_roles" {
 module "nonprod_v2_github_action_testing_roles" {
   source                                         = "../modules/v2-github-action-testing"
   prefix                                         = var.prefix
+  aws_region                                     = data.aws_region.management.name
+  account_id                                     = data.aws_caller_identity.management.account_id
   roles_can_assume_v2_github_action_testing_role = [module.tre_github_actions_open_id_connect.tre_open_id_connect_roles.v2-testing]
   v2_github_action_testing_policy_path           = "./templates/v2-github-action-testing-role-policy/nonprod.tftpl"
   providers = {
