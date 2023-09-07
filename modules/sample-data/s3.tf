@@ -1,10 +1,10 @@
-# da-sample-data bucket
-resource "aws_s3_bucket" "da_sample_data" {
+# da-transform-sample-data bucket
+resource "aws_s3_bucket" "da_transform_sample_data" {
   bucket = "da-transform-sample-data"
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "da_sample_data" {
-  bucket = aws_s3_bucket.da_sample_data.id
+resource "aws_s3_bucket_server_side_encryption_configuration" "da_transform_sample_data" {
+  bucket = aws_s3_bucket.da_transform_sample_data.id
   rule {
     apply_server_side_encryption_by_default {
       sse_algorithm = "aws:kms"
@@ -12,15 +12,15 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "da_sample_data" {
   }
 }
 
-resource "aws_s3_bucket_versioning" "da_sample_data" {
-  bucket = aws_s3_bucket.da_sample_data.id
+resource "aws_s3_bucket_versioning" "da_transform_sample_data" {
+  bucket = aws_s3_bucket.da_transform_sample_data.id
   versioning_configuration {
     status = "Enabled"
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "da_sample_data" {
-  bucket                  = aws_s3_bucket.da_sample_data.bucket
+resource "aws_s3_bucket_public_access_block" "da_transform_sample_data" {
+  bucket                  = aws_s3_bucket.da_transform_sample_data.bucket
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
