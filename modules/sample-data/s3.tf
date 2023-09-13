@@ -26,3 +26,8 @@ resource "aws_s3_bucket_public_access_block" "da_transform_sample_data" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+resource "aws_s3_bucket_policy" "da_transform_sample_data" {
+  bucket = aws_s3_bucket.da_transform_sample_data.bucket
+  policy = data.aws_iam_policy_document.da_transform_sample_data_bucket.json
+}
