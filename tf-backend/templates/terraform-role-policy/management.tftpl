@@ -146,6 +146,41 @@
                 "lambda:UpdateFunctionUrlConfig"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "KMS",
+            "Effect": "Allow",
+            "Action": [
+                "kms:CancelKeyDeletion",
+                "kms:CreateAlias",
+                "kms:CreateGrant",
+                "kms:CreateKey",
+                "kms:Decrypt",
+                "kms:DeleteAlias",
+                "kms:DescribeKey",
+                "kms:DisableKey",
+                "kms:DisableKeyRotation",
+                "kms:EnableKey",
+                "kms:EnableKeyRotation",
+                "kms:Encrypt",
+                "kms:GenerateDataKey",
+                "kms:GetKeyPolicy",
+                "kms:GetKeyRotationStatus",
+                "kms:ListAliases",
+                "kms:ListGrants",
+                "kms:ListKeyPolicies",
+                "kms:ListKeys",
+                "kms:ListResourceTags",
+                "kms:ListRetirableGrants",
+                "kms:PutKeyPolicy",
+                "kms:ScheduleKeyDeletion",
+                "kms:TagResource",
+                "kms:UntagResource",
+                "kms:UpdateAlias",
+                "kms:UpdateKeyDescription",
+                "kms:UpdatePrimaryRegion"
+            ],
+            "Resource": "*"
         }
     ]
 }
