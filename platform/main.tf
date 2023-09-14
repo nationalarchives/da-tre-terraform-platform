@@ -24,4 +24,5 @@ module "sample-data" {
   source = "../modules/sample-data"
   account_id_nonprod = data.aws_caller_identity.nonprod.account_id
   account_id_prod    = data.aws_caller_identity.prod.account_id
+  account_id_mgmnt   = data.aws_caller_identity.aws.account_id
 }

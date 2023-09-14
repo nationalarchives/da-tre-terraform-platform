@@ -10,3 +10,7 @@ data "aws_caller_identity" "nonprod" {
 data "aws_caller_identity" "prod" {
   provider = aws.prod
 }
+
+data "aws_caller_identity" "aws" {
+  provider = aws
+}
