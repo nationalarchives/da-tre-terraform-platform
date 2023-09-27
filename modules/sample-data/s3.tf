@@ -7,7 +7,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "da_transform_samp
   bucket = aws_s3_bucket.da_transform_sample_data.id
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "aws:kms"
+      kms_master_key_id = "alias/s3/platform/da-transform-sample-data"
+      sse_algorithm     = "aws:kms"
     }
   }
 }
