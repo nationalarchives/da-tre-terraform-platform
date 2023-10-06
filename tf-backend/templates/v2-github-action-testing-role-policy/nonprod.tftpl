@@ -16,12 +16,11 @@
             "Action": [
                 "sns:Subscribe",
                 "sns:Unsubscribe",
-                "sns:SetSubscriptionAttributes"
+                "sns:SetSubscriptionAttributes",
+                "sns:Publish"
             ],
             "Resource": [
-                "arn:aws:sns:${aws_region}:${account_id}:*-tre-in",
-                "arn:aws:sns:${aws_region}:${account_id}:*-tre-internal",
-                "arn:aws:sns:${aws_region}:${account_id}:*-tre-out"
+                "arn:aws:sns:${aws_region}:${account_id}:*-da-eventbus
             ]
         },
         {
