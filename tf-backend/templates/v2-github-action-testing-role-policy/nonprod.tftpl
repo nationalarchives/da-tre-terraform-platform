@@ -37,6 +37,17 @@
             "Resource": [
                 "arn:aws:sqs:${aws_region}:${account_id}:*-temp-out-testing"
             ]
+        },
+        {
+            "Sid": "sample-data-bucket-access",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "da-transform-sample-data",
+                "da-transform-sample-data/*"
+            ]
         }
     ]
 }
