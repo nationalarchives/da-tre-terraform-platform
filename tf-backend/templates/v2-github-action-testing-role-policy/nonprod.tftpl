@@ -5,6 +5,7 @@
             "Sid": "KMSAccess",
             "Effect": "Allow",
             "Action": [
+                "kms:Encrypt",
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
@@ -39,7 +40,7 @@
             ]
         },
         {
-            "Sid": "sample-data-bucket-access",
+            "Sid": "S3Access",
             "Effect": "Allow",
             "Action": [
                 "s3:PutObject",
