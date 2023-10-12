@@ -9,7 +9,10 @@
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*",
+                "arn:aws:kms:eu-west-2:454286877087:key/e079adef-d0a8-4f7e-ad09-80957f8fba5a"
+            ]
         },
         {
             "Sid": "SNSAccess",
