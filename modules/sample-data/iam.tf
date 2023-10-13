@@ -2,11 +2,12 @@ data "aws_iam_policy_document" "da_transform_sample_data_bucket" {
   statement {
     actions = [
       "s3:ListBucket",
+      "s3:PutObject",
       "s3:GetObject"
     ]
 
     principals {
-      type        = "AWS"
+      type = "AWS"
       identifiers = [
         var.account_id_prod,
         var.account_id_nonprod
@@ -35,7 +36,7 @@ data "aws_iam_policy_document" "da_transform_sample_data_bucket_kms" {
     sid    = "Allow sample data readers key"
     effect = "Allow"
     principals {
-      type        = "AWS"
+      type = "AWS"
       identifiers = [
         var.account_id_prod,
         var.account_id_nonprod
