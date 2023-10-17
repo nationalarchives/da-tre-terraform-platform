@@ -116,7 +116,7 @@ locals {
     module.tre_prod_terraform_roles.tre_terraform_iam_policy,
     module.tre_prod_terraform_roles.tre_terraform_policy,
     module.tre_prod_terraform_roles.tre_permission_boundary,
-    "arn:aws:iam::${data.aws_caller_identity.prod.account_id}:policy/${var.prefix}-terraform-backend",
-    module.prod_v2_github_action_testing_roles.tre_v2_github_action_testing_policy_arn
+    module.prod_v2_github_action_testing_roles.tre_v2_github_action_testing_policy_arn,
+    "arn:aws:iam::${data.aws_caller_identity.prod.account_id}:policy/${var.prefix}-terraform-backend"
   ]
 }
