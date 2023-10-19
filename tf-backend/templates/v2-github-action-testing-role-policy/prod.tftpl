@@ -1,1 +1,42 @@
-# Placeholder for prod v2-github-action-testing-policy
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "KMSAccess",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SNSAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sns:Subscribe",
+                "sns:Unsubscribe",
+                "sns:SetSubscriptionAttributes",
+                "sns:Publish"
+            ],
+            "Resource": [
+                "arn:aws:sns:${aws_region}:${account_id}:staging-da-eventbus"
+            ]
+        },
+        {
+            "Sid": "SQSAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sqs:CreateQueue",
+                "sqs:PurgeQueue",
+                "sqs:DeleteMessage",
+                "sqs:DeleteQueue",
+                "sqs:ReceiveMessage",
+                "sqs:SetQueueAttributes"
+            ],
+            "Resource": [
+                "arn:aws:sqs:${aws_region}:${account_id}:staging-temp-out-testing"
+            ]
+        }
+    ]
+}
