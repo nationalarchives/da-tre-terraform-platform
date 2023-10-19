@@ -66,6 +66,7 @@ module "tre_prod_terraform_roles" {
 
 # Roles grant access to GitHub action to execute tests
 module "nonprod_v2_github_action_testing_roles" {
+  name                                           = local.v2-github-testing-resources-name
   source                                         = "../modules/v2-github-action-testing"
   prefix                                         = var.prefix
   aws_region                                     = data.aws_region.management.name
@@ -75,9 +76,11 @@ module "nonprod_v2_github_action_testing_roles" {
   providers = {
     aws = aws.nonprod
   }
+  depends_on = [ module.tre_nonprod_terraform_roles ]
 }
 
 module "prod_v2_github_action_testing_roles" {
+  name                                           = local.v2-github-testing-resources-name
   source                                         = "../modules/v2-github-action-testing"
   prefix                                         = var.prefix
   aws_region                                     = data.aws_region.management.name
@@ -87,4 +90,5 @@ module "prod_v2_github_action_testing_roles" {
   providers = {
     aws = aws.prod
   }
+  depends_on = [ module.tre_prod_terraform_roles ]
 }

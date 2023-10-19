@@ -1,10 +1,10 @@
 resource "aws_iam_role" "v2_github_action_testing" {
-  name               = "${var.prefix}-v2-github-action-testing"
+  name               = var.name
   assume_role_policy = data.aws_iam_policy_document.v2_github_action_testing.json
 }
 
 resource "aws_iam_policy" "v2_github_action_testing" {
-  name = "${var.prefix}-v2-github-action-testing"
+  name = var.name
   policy = templatefile(var.v2_github_action_testing_policy_path, {
     aws_region  = var.aws_region
     account_id  = var.account_id

@@ -1,3 +1,8 @@
+variable "name" {
+  description = "Name for create policies and roles"
+  type        = string
+}
+
 variable "prefix" {
   description = "Prefix for transformation engine resources"
   type        = string
