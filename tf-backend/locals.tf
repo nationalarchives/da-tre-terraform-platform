@@ -41,8 +41,8 @@ locals {
       policy_path = "./templates/open-id-connect-role-policy/v2-github-action-testing.tftpl"
       tf_state    = "" # Testing does not require any tf_state access
       roles_can_assume = [
-        module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn,
-        module.prod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn
+        "arn:aws:iam::${data.aws_caller_identity.nonprod.account_id}:role/${local.v2-github-testing-resources-name}",
+        "arn:aws:iam::${data.aws_caller_identity.prod.account_id}:role/${local.v2-github-testing-resources-name}"
       ]
     }
   ]
