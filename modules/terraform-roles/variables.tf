@@ -34,15 +34,6 @@ variable "terraform_backend_policy_path" {
   type        = any
 }
 
-variable "tre_roles_managed_by_tf_backend" {
-  description = "ARNs of the roles managed by tre-terraform-backend"
-  type        = list(string)
-}
-
-variable "tre_policies_managed_by_tf_backend" {
-  description = "ARNs of the policies managed by tre-terraform-backend"
-  type        = list(string)
-}
 variable "account_id" {
   description = "AWS Account ID"
   type        = string

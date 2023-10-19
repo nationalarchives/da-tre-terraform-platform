@@ -21,8 +21,6 @@ module "tre_management_terraform_roles" {
   terraform_policy_path                   = "./templates/terraform-role-policy/management.tftpl"
   terraform_iam_policy_path               = "./templates/terraform-iam-policy/management.tftpl"
   terraform_backend_policy_path           = "./templates/terraform-backend-role-policy/management.tftpl"
-  tre_roles_managed_by_tf_backend         = local.tre_roles_managed_by_tf_backend_management
-  tre_policies_managed_by_tf_backend      = local.tre_policies_managed_by_tf_backend_management
   account_id                              = data.aws_caller_identity.management.account_id
 }
 
@@ -39,8 +37,6 @@ module "tre_nonprod_terraform_roles" {
   }
   terraform_iam_policy_path          = "./templates/terraform-iam-policy/environments.tftpl"
   terraform_backend_policy_path      = "./templates/terraform-backend-role-policy/environments.tftpl"
-  tre_roles_managed_by_tf_backend    = local.tre_roles_managed_by_tf_backend_nonprod
-  tre_policies_managed_by_tf_backend = local.tre_policies_managed_by_tf_backend_nonprod
   account_id                         = data.aws_caller_identity.nonprod.account_id
 }
 
@@ -59,8 +55,6 @@ module "tre_prod_terraform_roles" {
   }
   terraform_iam_policy_path          = "./templates/terraform-iam-policy/environments.tftpl"
   terraform_backend_policy_path      = "./templates/terraform-backend-role-policy/environments.tftpl"
-  tre_roles_managed_by_tf_backend    = local.tre_roles_managed_by_tf_backend_prod
-  tre_policies_managed_by_tf_backend = local.tre_policies_managed_by_tf_backend_prod
   account_id                         = data.aws_caller_identity.prod.account_id
 }
 
@@ -75,7 +69,6 @@ module "nonprod_v2_github_action_testing_roles" {
   providers = {
     aws = aws.nonprod
   }
-  depends_on = [ module.tre_nonprod_terraform_roles ]
 }
 
 module "prod_v2_github_action_testing_roles" {
@@ -88,5 +81,4 @@ module "prod_v2_github_action_testing_roles" {
   providers = {
     aws = aws.prod
   }
-  depends_on = [ module.tre_prod_terraform_roles ]
 }
