@@ -94,7 +94,7 @@ locals {
   tre_roles_managed_by_tf_backend_nonprod = [
     module.tre_nonprod_terraform_roles.tre_terraform_backend_role_arn,
     module.tre_nonprod_terraform_roles.terraform_role_arn,
-    "arn:aws:iam::${data.aws_caller_identity.nonprod.account_id}:role/${local.v2-github-testing-resources-name}",
+    "arn:aws:iam::${data.aws_caller_identity.nonprod.account_id}:role/${local.v2-github-testing-resources-name}"
   ]
 
   tre_policies_managed_by_tf_backend_nonprod = [
@@ -107,7 +107,7 @@ locals {
   tre_roles_managed_by_tf_backend_prod = [
     module.tre_prod_terraform_roles.tre_terraform_backend_role_arn,
     module.tre_prod_terraform_roles.terraform_role_arn,
-    "arn:aws:iam::${data.aws_caller_identity.prod.account_id}:role/${local.v2-github-testing-resources-name}",
+    "arn:aws:iam::${data.aws_caller_identity.prod.account_id}:role/${local.v2-github-testing-resources-name}"
   ]
 
   tre_policies_managed_by_tf_backend_prod = [
