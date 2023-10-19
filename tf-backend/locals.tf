@@ -107,7 +107,7 @@ locals {
 
   tre_roles_managed_by_tf_backend_prod = [
     module.tre_prod_terraform_roles.tre_terraform_backend_role_arn,
-    module.tre_prod_terraform_roles.terraform_role_arn,
+    module.tre_prod_terraform_roles.terraform_role_arn
   ]
 
   tre_policies_managed_by_tf_backend_prod = [
