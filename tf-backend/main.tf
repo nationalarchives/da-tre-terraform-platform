@@ -75,7 +75,6 @@ module "nonprod_v2_github_action_testing_roles" {
   providers = {
     aws = aws.nonprod
   }
-  depends_on = [ module.tre_nonprod_terraform_roles ]
 }
 
 module "prod_v2_github_action_testing_roles" {
@@ -88,5 +87,4 @@ module "prod_v2_github_action_testing_roles" {
   providers = {
     aws = aws.prod
   }
-  depends_on = [ module.tre_prod_terraform_roles ]
 }
