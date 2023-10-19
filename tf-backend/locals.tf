@@ -42,7 +42,7 @@ locals {
       tf_state    = "" # Testing does not require any tf_state access
       roles_can_assume = [
         module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn,
-        module.nonprod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn
+        module.prod_v2_github_action_testing_roles.tre_v2_github_action_testing_role_arn
       ]
     }
   ]
