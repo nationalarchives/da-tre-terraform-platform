@@ -5,10 +5,14 @@
             "Sid": "KMSAccess",
             "Effect": "Allow",
             "Action": [
+                "kms:Encrypt",
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*",
+                "arn:aws:kms:eu-west-2:454286877087:key/e079adef-d0a8-4f7e-ad09-80957f8fba5a"
+            ]
         },
         {
             "Sid": "SNSAccess",
@@ -36,6 +40,19 @@
             ],
             "Resource": [
                 "arn:aws:sqs:${aws_region}:${account_id}:staging-temp-out-testing"
+            ]
+        },
+        {
+            "Sid": "S3Access",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::da-transform-sample-data",
+                "arn:aws:s3:::da-transform-sample-data/*"
             ]
         }
     ]
