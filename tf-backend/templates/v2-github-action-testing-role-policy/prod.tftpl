@@ -43,10 +43,9 @@
             ]
         },
         {
-            "Sid": "S3Access",
+            "Sid": "SampleDataS3Access",
             "Effect": "Allow",
             "Action": [
-                "s3:GetObject",
                 "s3:PutObject",
                 "s3:DeleteObject",
                 "s3:ListBucket"
@@ -55,6 +54,17 @@
                 "arn:aws:s3:::da-transform-sample-data",
                 "arn:aws:s3:::da-transform-sample-data/*"
             ]
+        },
+        {
+            "Sid": "PackOutS3Access",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::*-court-document-pack-out",
+                "arn:aws:s3:::*-court-document-pack-out/*"
+            ],
         }
     ]
 }
