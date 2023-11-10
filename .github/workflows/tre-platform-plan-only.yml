@@ -18,7 +18,7 @@ permissions:
   contents: write
 jobs:
   terraform-plan:
-    uses: nationalarchives/da-tre-github-actions/.github/workflows/tf-plan.yml@DTE-913-platform-plan-action
+    uses: nationalarchives/da-tre-github-actions/.github/workflows/tf-plan.yml@0.0.21
     with:
       github_environment: ${{ inputs.environment }}-plan
       tre_environment: ${{ inputs.environment }}
