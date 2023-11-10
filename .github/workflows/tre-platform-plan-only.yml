@@ -17,7 +17,7 @@ permissions:
   id-token: write
   contents: write
 jobs:
-  terraform-deployment:
+  terraform-plan:
     uses: nationalarchives/da-tre-github-actions/.github/workflows/tf-plan.yml@DTE-913-platform-plan-action
     with:
       github_environment: ${{ inputs.environment }}-plan
