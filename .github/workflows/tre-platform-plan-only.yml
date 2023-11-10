@@ -1,0 +1,28 @@
+name: Terraform platform plan
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Choose the environment you want to generate a terraform plan for from the dropdown list
+        options:
+          - tf-backend
+          - platform
+      github_action_ref:
+        description: tre-github-action repo ref
+        type: string
+        required: false
+        default: main
+permissions:
+  id-token: write
+  contents: write
+jobs:
+  terraform-deployment:
+    uses: nationalarchives/da-tre-github-actions/.github/workflows/tf-plan@DTE-913-platform-plan
+    with:
+      tre_environment: ${{ inputs.environment }}
+      tf_dir: ${{ inputs.environment }}
+      github_action_ref: ${{ inputs.github_action_ref }}
+    secrets:
+      ROLE_ARN: ${{ secrets.ROLE_ARN }}
+      AWS_PARAM_STORE_TF_BACKEND_KEY: ${{ secrets.AWS_PARAM_STORE_TF_BACKEND_KEY }}
