@@ -208,6 +208,14 @@
                 "firehose:UpdateDestination"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "EventBridge",
+            "Effect": "Allow",
+            "Action": [
+                "events:TagResource"
+            ],
+            "Resource": "*"
         }
     ]
 }
