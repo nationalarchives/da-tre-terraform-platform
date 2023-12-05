@@ -213,7 +213,13 @@
             "Sid": "EventBridge",
             "Effect": "Allow",
             "Action": [
-                "events:TagResource"
+                "events:TagResource",
+                "events:PutRule",
+                "events:DescribeRule",
+                "events:ListRules",
+                "events:DeleteRule",
+                "events:PutTargets",
+                "events:RemoveTargets"
             ],
             "Resource": "*"
         }
