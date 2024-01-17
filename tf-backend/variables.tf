@@ -57,7 +57,7 @@ variable "additional_roles_who_can_assume_terraform_roles" {
   type        = list(string)
 }
 
-variable "tna_admin_account_arn" {
-  description = "arn of TNA cross organisation admin account"
+variable "tna_admin_user_arn" {
+  description = "arn of TNA cross organisation admin user"
   type        = string
 }

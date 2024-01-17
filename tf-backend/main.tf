@@ -98,7 +98,7 @@ module "tre_management_tna_admin_role" {
   providers = {
     aws = aws.management
   }  
-  admin_account_arn = var.tna_admin_account_arn
+  admin_user_arn = var.tna_admin_user_arn
 }
 
 module "tre_prod_tna_admin_role" {
@@ -106,7 +106,7 @@ module "tre_prod_tna_admin_role" {
   providers = {
     aws = aws.prod
   }
-  admin_account_arn = var.tna_admin_account_arn
+  admin_user_arn = var.tna_admin_user_arn
 }
 
 module "tre_nonprod_tna_admin_role" {
@@ -114,5 +114,5 @@ module "tre_nonprod_tna_admin_role" {
   providers = {
     aws = aws.nonprod
   }
-  admin_account_arn = var.tna_admin_account_arn
+  admin_user_arn = var.tna_admin_user_arn
 }

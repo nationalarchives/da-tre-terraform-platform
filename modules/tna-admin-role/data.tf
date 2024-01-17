@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "admin_role_policy" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = [ var.admin_account_arn ]
+      identifiers = [ var.admin_user_arn ]
     }
   }
 }
