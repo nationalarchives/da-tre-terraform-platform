@@ -96,7 +96,7 @@ module "prod_v2_github_action_testing_roles" {
 module "tre_management_tna_admin_role" {
   source = "../modules/tna-admin-role"
   providers = {
-    aws = aws.management
+    aws = aws.mngmt
   }  
   admin_user_arn = var.tna_admin_user_arn
 }

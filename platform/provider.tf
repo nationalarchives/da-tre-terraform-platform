@@ -1,4 +1,5 @@
 provider "aws" {
+  alias = "mngmt"
   region = "eu-west-2"
   assume_role {
     role_arn = var.assume_roles.mngmt
