@@ -1,4 +1,4 @@
 variable "admin_user_arn" {
-  description = "Account arn to assign administrator access"
+  description = "User arn to assign administrator access"
   type        = string
 }
