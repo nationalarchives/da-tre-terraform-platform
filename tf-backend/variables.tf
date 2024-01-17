@@ -56,3 +56,8 @@ variable "additional_roles_who_can_assume_terraform_roles" {
   description = "List of ARNs of principles who can assume the tre-terraform and tre-terraform-backend roles beyond Github"
   type        = list(string)
 }
+
+variable "tna_admin_user_arn" {
+  description = "arn of TNA cross organisation admin user"
+  type        = string
+}

@@ -92,3 +92,27 @@ module "prod_v2_github_action_testing_roles" {
   }
   depends_on = [ module.tre_prod_terraform_roles ]
 }
+
+module "tre_management_tna_admin_role" {
+  source = "../modules/tna-admin-role"
+  providers = {
+    aws = aws
+  }  
+  admin_user_arn = var.tna_admin_user_arn
+}
+
+module "tre_prod_tna_admin_role" {
+  source = "../modules/tna-admin-role"
+  providers = {
+    aws = aws.prod
+  }
+  admin_user_arn = var.tna_admin_user_arn
+}
+
+module "tre_nonprod_tna_admin_role" {
+  source = "../modules/tna-admin-role"
+  providers = {
+    aws = aws.nonprod
+  }
+  admin_user_arn = var.tna_admin_user_arn
+}
