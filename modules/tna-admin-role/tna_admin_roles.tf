@@ -1,5 +1,5 @@
 resource "aws_iam_role" "tna_admin_role" {
-  name               = "IAM_Admin_Role"
+  name               = var.name
   assume_role_policy = data.aws_iam_policy_document.admin_role_policy.json
 }
 
