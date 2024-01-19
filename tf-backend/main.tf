@@ -94,7 +94,6 @@ module "prod_v2_github_action_testing_roles" {
 }
 
 module "tre_management_tna_admin_role" {
-  name = local.tna-admin-role-name
   source = "../modules/tna-admin-role"
   providers = {
     aws = aws
@@ -103,7 +102,6 @@ module "tre_management_tna_admin_role" {
 }
 
 module "tre_prod_tna_admin_role" {
-  name = local.tna-admin-role-name
   source = "../modules/tna-admin-role"
   providers = {
     aws = aws.prod
@@ -112,7 +110,6 @@ module "tre_prod_tna_admin_role" {
 }
 
 module "tre_nonprod_tna_admin_role" {
-  name = local.tna-admin-role-name
   source = "../modules/tna-admin-role"
   providers = {
     aws = aws.nonprod
