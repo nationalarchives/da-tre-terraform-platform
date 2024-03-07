@@ -20,6 +20,17 @@ resource "aws_s3_bucket_versioning" "da_transform_sample_data" {
   }
 }
 
+resource "aws_s3_bucket_lifecycle_configuration" "da_transform_sample_data" {
+  bucket = aws_s3_bucket.da_transform_sample_data.id
+  rule {
+    id = "${aws_s3_bucket.da_transform_sample_data.id}-expiry"
+    expiration {
+      days = 7
+    }
+    status = "Enabled"
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "da_transform_sample_data" {
   bucket                  = aws_s3_bucket.da_transform_sample_data.bucket
   block_public_acls       = true
