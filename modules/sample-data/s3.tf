@@ -25,7 +25,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "da_transform_sample_data" {
   rule {
     id = "${aws_s3_bucket.da_transform_sample_data.id}-expiry"
     expiration {
-      days = 7
+      days = 6
     }
     status = "Enabled"
   }
